@@ -1,0 +1,177 @@
+:root {
+  --primary: #7c3aed; /* Vibrant Purple */
+  --primary-light: #a78bfa;
+  --primary-hover: #6d28d9;
+  --secondary: #3b82f6; /* Modern Blue */
+  --secondary-light: #60a5fa;
+  --accent: #f5f3ff; /* Light Lavender tint */
+  --background: #fdfaff;
+  --surface: #ffffff;
+  --text: #1e1b4b; /* Deep Navy/Indigo */
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --success: #10b981;
+  --success-bg: #ecfdf5;
+  --warning: #f59e0b;
+  --warning-bg: #fffbeb;
+  --error: #ef4444;
+  --error-bg: #fef2f2;
+  --info: #3b82f6;
+  --info-bg: #eff6ff;
+  --gradient: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --radius: 16px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 10px 15px -3px rgb(124 58 237 / 0.1), 0 4px 6px -4px rgb(124 58 237 / 0.1);
+  --transition: cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Base Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Utilities */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+}
+
+/* Status Specific Cards */
+.card-info { background: var(--info-bg); border-color: #bfdbfe; color: #1e40af; }
+.card-success { background: var(--success-bg); border-color: #bbf7d0; color: #065f46; }
+.card-warning { background: var(--warning-bg); border-color: #fef3c7; color: #92400e; }
+.card-error { background: var(--error-bg); border-color: #fecaca; color: #991b1b; }
+.card-neutral { background: var(--surface); border-color: var(--border); }
+
+.stat-label { font-size: 0.875rem; font-weight: 600; opacity: 0.8; margin-bottom: 0.5rem; }
+.stat-value { font-size: 1.875rem; font-weight: 800; }
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.status-new { background: var(--info-bg); color: var(--info); }
+.status-resolved { background: var(--success-bg); color: var(--success); }
+.status-escalated { background: var(--error-bg); color: var(--error); }
+.status-default { background: var(--accent); color: var(--secondary); }
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--secondary);
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
